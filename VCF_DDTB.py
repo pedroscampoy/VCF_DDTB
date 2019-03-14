@@ -1,41 +1,144 @@
 import os
 import pandas as pd
+import argparse
 
+
+
+ #TODO: 
+    #- better implementation of sample name
+    #- exit if file don't exist
+    #- create a file with the date as backup
+    #- handle when sample exist
 
 directory = "test/test"
-print(directory)
+cwd = os.getcwd()
+
+
+
+final_ddbb = pd.read_csv("DDBB_TB_FINAL.csv", sep=',', header=0)
+print("Previous final database contains %s rows and %s columns\n" % final_ddbb.shape)
+
+
+
+
 for filename in os.listdir(directory):
+    
+    print("The directory selected is: %s\nand the file is: %s" % (directory, filename))
+    
+    positions_shared = []
+    positions_added = []
+    
+    
+    
+    #Manage sample name. Split by "_" and take the first word on the left
+    ###################
+    sample = filename.split("_")[0]
+    
+    print("The sample name retrieved is: %s\n" % sample)
+    
+    
+    #Manage file[s]. Check if file exist and is greater than 0
+    ###############
+    file = os.path.join(directory, filename) #Whole file path
+    file_info = os.stat(file) #Retrieve the file info to check if has size > 0
 
-    print(filename)
-
-    file = os.path.join(directory, filename)
-    file_info = os.stat(file)
-
-    print(file)
 
     if os.path.isfile(file) and file_info.st_size > 0:
-        #continue
-        print(filename)
+        
+        pass
+
     else:
-        print("WARNING: Your file %s does not exist or is empty" % filename)
+        print("ERROR: Your file %s does not exist or is empty" % filename)
 
-    #import files
+    #Import files in annotated vcf format
+    #####################################
 
-    ddbb_tb = pd.read_csv(file, sep='\t', header=0)
+    new_sample = pd.read_csv(file, sep='\t', skiprows=[0], header=None)
+
     
-    #new_sample
+    #Handle each new_sample
+    #######################
     
-    print("This file contains %s rows and %s columns" % ddbb_tb.shape)
+    #print("This file contains %s SNPs and %s columns" % new_sample.shape)
+    
+    
+    #Check if sample exist
+    ######################
+    
+    if sample not in final_ddbb.columns:
+        print("The sample %s is NOT in final ddbb. Adding sample" % sample)
+        #print("Adding new sample %s to final ddbb" % sample)
+        
+        #extrac the number of columns to insert a new one
+        new_colum_index = len(final_ddbb.columns)
+        #final_ddbb[sample] = sample #adds a new column but fills all blanks with the value sample
+        
+        #add a new column with defauls values = 0
+        final_ddbb.insert(new_colum_index, sample, 0)
+        
+        #Check if position exist
+        ########################
+        
+        print("Checking positions(SNPs) in sample %s" % sample)
+        for position in new_sample.iloc[:,0].unique(): #extract first column in file
+            if position not in final_ddbb["Position"].values:
+                
+                positions_added.append(position)
+                
+                new_row = len(final_ddbb.index)
+                final_ddbb.loc[new_row,'Position'] = position
+                final_ddbb.loc[new_row,'Samples'] = sample
+                final_ddbb.loc[new_row,'N'] = int(1)
+                final_ddbb.loc[new_row,sample] = str(1)
+                
+            else:
+                
+                positions_shared.append(position)
+                
+                #Check whether the column matches the value and retrieve the first position [0]
+                #of the object index generated
+                index_position = final_ddbb.index[final_ddbb["Position"] == position][0]
+                
+                                              
+                number_samples_with_position = final_ddbb.loc[index_position,'N']
+                names_samples_with_position = final_ddbb.loc[index_position,'Samples']
+                new_names_samples = names_samples_with_position + "," + sample
+                
+                #print("NEW NAME = %s" % new_names_samples)
+                
+                final_ddbb.loc[index_position,'N'] = number_samples_with_position + 1 #add 1 to the number of samples
+                final_ddbb.loc[index_position,'Samples'] = new_names_samples
+                final_ddbb.loc[index_position,sample] = int(1) #Add "1" in cell with correct position vs sample
+    
+    else:
+        
+        print("This sample ALREADY exist, have a look")
+              
+    #Create small report with basic count
+    #####################################
+    
+    #print("%s new positions from %s were added to final ddbb: %s" % (len(positions_added), sample, positions_added))
+    #print("%s positions from %s were already in final ddbb: %s" % (len(positions_shared), sample, positions_shared))
+    
+    print("\nSAMPLE:\t%s\nTOTAL Variants:\t%s\nShared Variants:\t%s\nNew Variants:\t%s\n" % (sample, len(new_sample.index), len(positions_shared), len(positions_added)))
+    
+#Finally NaN are replaced by 0, decimals are not displayed and posiitons are sorted
+#df.astype(int) AND set_option('precision', 0) doesn't work with string cells
 
-    #print(ddbb_tb.columns)
+#final_ddbb = final_ddbb["Position"].astype(int)
+pd.set_option('display.precision', 0)
+#pd.reset_option('^display.', silent=True) #Reset options in case I mess up
 
-    #for i in ddbb_tb.iloc[:,0]:
-    #for i in ddbb_tb["Position"]:
-     #   print("Hola %s" % i)
-
-    #check new variables
-
-    #Add samples and increase N
-
+#pd.set_option('precision', 5)
+#pd.options.display.float_format = '{:,2f}'.format
+final_ddbb = final_ddbb.fillna(0).sort_values("Position")
+    
+print("Final database now contains %s rows and %s columns" % final_ddbb.shape)
+print(final_ddbb)
 
 
+#Create a Pandas Excel writer using XlsxWriter as the engine.
+#writer = pd.ExcelWriter("pandas_column_formats.xlsx", engine='xlsxwriter')
+
+#Convert the dataframe to an XlsxWriter Excel object.
+#df.to_excel(writer, sheet_name='Sheet1')
