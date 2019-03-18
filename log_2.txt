@@ -1,0 +1,1786 @@
+Previous final database contains 0 rows and 3 columns
+
+The directory selected is: /home/laura/DATABASES/SNP_FINAL/FINAL_APRIL_2019
+The file is: AL36985Q_final.bam.snp.final
+The sample name retrieved is: AL36985Q
+
+The sample AL36985Q is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample AL36985Q
+
+SAMPLE:	AL36985Q
+TOTAL Variants:	877
+Shared Variants:	0
+New Variants:	877
+
+The file is: AL-20243_final.bam.snp.final
+The sample name retrieved is: AL-20243
+
+The sample AL-20243 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample AL-20243
+
+SAMPLE:	AL-20243
+TOTAL Variants:	875
+Shared Variants:	539
+New Variants:	336
+
+The file is: T18-043_final.bam.snp.final
+The sample name retrieved is: T18-043
+
+The sample T18-043 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample T18-043
+
+SAMPLE:	T18-043
+TOTAL Variants:	31
+Shared Variants:	11
+New Variants:	20
+
+The file is: C-38373_final.bam.snp.final
+The sample name retrieved is: C-38373
+
+The sample C-38373 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample C-38373
+
+SAMPLE:	C-38373
+TOTAL Variants:	801
+Shared Variants:	703
+New Variants:	98
+
+The file is: AL59799_final.bam.snp.final
+The sample name retrieved is: AL59799
+
+The sample AL59799 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample AL59799
+
+SAMPLE:	AL59799
+TOTAL Variants:	416
+Shared Variants:	404
+New Variants:	12
+
+The file is: Al-46007.3_final.bam.snp.final
+The sample name retrieved is: Al-46007.3
+
+The sample Al-46007.3 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample Al-46007.3
+
+SAMPLE:	Al-46007.3
+TOTAL Variants:	878
+Shared Variants:	669
+New Variants:	209
+
+The file is: T-18-008_final.bam.snp.final
+The sample name retrieved is: T-18-008
+
+The sample T-18-008 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample T-18-008
+
+SAMPLE:	T-18-008
+TOTAL Variants:	597
+Shared Variants:	206
+New Variants:	391
+
+The file is: 43153_final.bam.snp.final
+The sample name retrieved is: 43153
+
+The sample 43153 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 43153
+
+SAMPLE:	43153
+TOTAL Variants:	956
+Shared Variants:	660
+New Variants:	295
+
+The file is: ID2014-43_final.bam.snp.final
+The sample name retrieved is: ID2014-43
+
+The sample ID2014-43 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample ID2014-43
+
+SAMPLE:	ID2014-43
+TOTAL Variants:	896
+Shared Variants:	677
+New Variants:	218
+
+The file is: Al-46007.17_final.bam.snp.final
+The sample name retrieved is: Al-46007.17
+
+The sample Al-46007.17 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample Al-46007.17
+
+SAMPLE:	Al-46007.17
+TOTAL Variants:	877
+Shared Variants:	872
+New Variants:	5
+
+The file is: MPZ06027636_final.bam.snp.final
+The sample name retrieved is: MPZ06027636
+
+The sample MPZ06027636 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample MPZ06027636
+
+SAMPLE:	MPZ06027636
+TOTAL Variants:	861
+Shared Variants:	805
+New Variants:	56
+
+The file is: ARG22974_final.bam.snp.final
+The sample name retrieved is: ARG22974
+
+The sample ARG22974 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample ARG22974
+
+SAMPLE:	ARG22974
+TOTAL Variants:	882
+Shared Variants:	756
+New Variants:	126
+
+The file is: 4035847_final.bam.snp.final
+The sample name retrieved is: 4035847
+
+The sample 4035847 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 4035847
+
+SAMPLE:	4035847
+TOTAL Variants:	902
+Shared Variants:	891
+New Variants:	11
+
+The file is: Al-45926.19_final.bam.snp.final
+The sample name retrieved is: Al-45926.19
+
+The sample Al-45926.19 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample Al-45926.19
+
+SAMPLE:	Al-45926.19
+TOTAL Variants:	875
+Shared Variants:	875
+New Variants:	0
+
+The file is: Nantua5_final.bam.snp.final
+The sample name retrieved is: Nantua5
+
+The sample Nantua5 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample Nantua5
+
+SAMPLE:	Nantua5
+TOTAL Variants:	961
+Shared Variants:	860
+New Variants:	101
+
+The file is: L-3662_final.bam.snp.final
+The sample name retrieved is: L-3662
+
+The sample L-3662 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample L-3662
+
+SAMPLE:	L-3662
+TOTAL Variants:	751
+Shared Variants:	636
+New Variants:	115
+
+The file is: L-4936_final.bam.snp.final
+The sample name retrieved is: L-4936
+
+The sample L-4936 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample L-4936
+
+SAMPLE:	L-4936
+TOTAL Variants:	685
+Shared Variants:	677
+New Variants:	8
+
+The file is: HMOS17048593_final.bam.snp.final
+The sample name retrieved is: HMOS17048593
+
+The sample HMOS17048593 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample HMOS17048593
+
+SAMPLE:	HMOS17048593
+TOTAL Variants:	882
+Shared Variants:	737
+New Variants:	145
+
+The file is: 1288_final.bam.snp.final
+The sample name retrieved is: 1288
+
+The sample 1288 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 1288
+
+SAMPLE:	1288
+TOTAL Variants:	880
+Shared Variants:	872
+New Variants:	8
+
+The file is: AC2110289_final.bam.snp.final
+The sample name retrieved is: AC2110289
+
+The sample AC2110289 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample AC2110289
+
+SAMPLE:	AC2110289
+TOTAL Variants:	849
+Shared Variants:	510
+New Variants:	339
+
+The file is: MGIT84_final.bam.snp.final
+The sample name retrieved is: MGIT84
+
+The sample MGIT84 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample MGIT84
+
+SAMPLE:	MGIT84
+TOTAL Variants:	874
+Shared Variants:	788
+New Variants:	86
+
+The file is: 102199313_final.bam.snp.final
+The sample name retrieved is: 102199313
+
+The sample 102199313 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 102199313
+
+SAMPLE:	102199313
+TOTAL Variants:	865
+Shared Variants:	642
+New Variants:	223
+
+The file is: P14-98629_final.bam.snp.final
+The sample name retrieved is: P14-98629
+
+The sample P14-98629 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample P14-98629
+
+SAMPLE:	P14-98629
+TOTAL Variants:	918
+Shared Variants:	721
+New Variants:	197
+
+The file is: P-1266_final.bam.snp.final
+The sample name retrieved is: P-1266
+
+The sample P-1266 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample P-1266
+
+SAMPLE:	P-1266
+TOTAL Variants:	51
+Shared Variants:	50
+New Variants:	1
+
+The file is: CCM1013_final.bam.snp.final
+The sample name retrieved is: CCM1013
+
+The sample CCM1013 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample CCM1013
+
+SAMPLE:	CCM1013
+TOTAL Variants:	902
+Shared Variants:	894
+New Variants:	8
+
+The file is: P-1600_final.bam.snp.final
+The sample name retrieved is: P-1600
+
+The sample P-1600 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample P-1600
+
+SAMPLE:	P-1600
+TOTAL Variants:	408
+Shared Variants:	404
+New Variants:	4
+
+The file is: P14-31824_final.bam.snp.final
+The sample name retrieved is: P14-31824
+
+The sample P14-31824 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample P14-31824
+
+SAMPLE:	P14-31824
+TOTAL Variants:	714
+Shared Variants:	712
+New Variants:	2
+
+The file is: Gui-16R_final.bam.snp.final
+The sample name retrieved is: Gui-16R
+
+The sample Gui-16R is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample Gui-16R
+
+SAMPLE:	Gui-16R
+TOTAL Variants:	550
+Shared Variants:	550
+New Variants:	0
+
+The file is: PT411_final.bam.snp.final
+The sample name retrieved is: PT411
+
+The sample PT411 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample PT411
+
+SAMPLE:	PT411
+TOTAL Variants:	958
+Shared Variants:	954
+New Variants:	3
+
+The file is: 207-15_final.bam.snp.final
+The sample name retrieved is: 207-15
+
+The sample 207-15 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 207-15
+
+SAMPLE:	207-15
+TOTAL Variants:	890
+Shared Variants:	887
+New Variants:	3
+
+The file is: R7_22506_final.bam.snp.final
+The sample name retrieved is: R7
+
+The sample R7 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample R7
+
+SAMPLE:	R7
+TOTAL Variants:	883
+Shared Variants:	782
+New Variants:	101
+
+The file is: AL12520_final.bam.snp.final
+The sample name retrieved is: AL12520
+
+The sample AL12520 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample AL12520
+
+SAMPLE:	AL12520
+TOTAL Variants:	885
+Shared Variants:	865
+New Variants:	20
+
+The file is: 1296_final.bam.snp.final
+The sample name retrieved is: 1296
+
+The sample 1296 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 1296
+
+SAMPLE:	1296
+TOTAL Variants:	944
+Shared Variants:	883
+New Variants:	61
+
+The file is: 1195_final.bam.snp.final
+The sample name retrieved is: 1195
+
+The sample 1195 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 1195
+
+SAMPLE:	1195
+TOTAL Variants:	539
+Shared Variants:	408
+New Variants:	131
+
+The file is: AL1901108_final.bam.snp.final
+The sample name retrieved is: AL1901108
+
+The sample AL1901108 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample AL1901108
+
+SAMPLE:	AL1901108
+TOTAL Variants:	850
+Shared Variants:	699
+New Variants:	151
+
+The file is: AL27505_final.bam.snp.final
+The sample name retrieved is: AL27505
+
+The sample AL27505 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample AL27505
+
+SAMPLE:	AL27505
+TOTAL Variants:	859
+Shared Variants:	546
+New Variants:	313
+
+The file is: AL-2350209_final.bam.snp.final
+The sample name retrieved is: AL-2350209
+
+The sample AL-2350209 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample AL-2350209
+
+SAMPLE:	AL-2350209
+TOTAL Variants:	878
+Shared Variants:	873
+New Variants:	5
+
+The file is: 76-14485_final.bam.snp.final
+The sample name retrieved is: 76-14485
+
+The sample 76-14485 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 76-14485
+
+SAMPLE:	76-14485
+TOTAL Variants:	849
+Shared Variants:	579
+New Variants:	270
+
+The file is: F-27798_final.bam.snp.final
+The sample name retrieved is: F-27798
+
+The sample F-27798 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample F-27798
+
+SAMPLE:	F-27798
+TOTAL Variants:	860
+Shared Variants:	783
+New Variants:	77
+
+The file is: 1998205_final.bam.snp.final
+The sample name retrieved is: 1998205
+
+The sample 1998205 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 1998205
+
+SAMPLE:	1998205
+TOTAL Variants:	872
+Shared Variants:	667
+New Variants:	205
+
+The file is: 143518099_final.bam.snp.final
+The sample name retrieved is: 143518099
+
+The sample 143518099 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 143518099
+
+SAMPLE:	143518099
+TOTAL Variants:	850
+Shared Variants:	571
+New Variants:	279
+
+The file is: JP3_final.bam.snp.final
+The sample name retrieved is: JP3
+
+The sample JP3 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample JP3
+
+SAMPLE:	JP3
+TOTAL Variants:	899
+Shared Variants:	798
+New Variants:	101
+
+The file is: P89_final.bam.snp.final
+The sample name retrieved is: P89
+
+The sample P89 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample P89
+
+SAMPLE:	P89
+TOTAL Variants:	939
+Shared Variants:	919
+New Variants:	20
+
+The file is: P-5286_final.bam.snp.final
+The sample name retrieved is: P-5286
+
+The sample P-5286 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample P-5286
+
+SAMPLE:	P-5286
+TOTAL Variants:	891
+Shared Variants:	880
+New Variants:	11
+
+The file is: G018-0488_final.bam.snp.final
+The sample name retrieved is: G018-0488
+
+The sample G018-0488 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample G018-0488
+
+SAMPLE:	G018-0488
+TOTAL Variants:	782
+Shared Variants:	666
+New Variants:	116
+
+The file is: 458-41773_final.bam.snp.final
+The sample name retrieved is: 458-41773
+
+The sample 458-41773 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 458-41773
+
+SAMPLE:	458-41773
+TOTAL Variants:	890
+Shared Variants:	774
+New Variants:	116
+
+The file is: MGITTOUNAW_final.bam.snp.final
+The sample name retrieved is: MGITTOUNAW
+
+The sample MGITTOUNAW is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample MGITTOUNAW
+
+SAMPLE:	MGITTOUNAW
+TOTAL Variants:	827
+Shared Variants:	490
+New Variants:	337
+
+The file is: AI42221_final.bam.snp.final
+The sample name retrieved is: AI42221
+
+The sample AI42221 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample AI42221
+
+SAMPLE:	AI42221
+TOTAL Variants:	871
+Shared Variants:	710
+New Variants:	161
+
+The file is: IT-101_final.bam.snp.final
+The sample name retrieved is: IT-101
+
+The sample IT-101 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample IT-101
+
+SAMPLE:	IT-101
+TOTAL Variants:	148
+Shared Variants:	148
+New Variants:	0
+
+The file is: P-5249_final.bam.snp.final
+The sample name retrieved is: P-5249
+
+The sample P-5249 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample P-5249
+
+SAMPLE:	P-5249
+TOTAL Variants:	886
+Shared Variants:	772
+New Variants:	114
+
+The file is: 13263_final.bam.snp.final
+The sample name retrieved is: 13263
+
+The sample 13263 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 13263
+
+SAMPLE:	13263
+TOTAL Variants:	891
+Shared Variants:	756
+New Variants:	135
+
+The file is: Al-40657_final.bam.snp.final
+The sample name retrieved is: Al-40657
+
+The sample Al-40657 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample Al-40657
+
+SAMPLE:	Al-40657
+TOTAL Variants:	876
+Shared Variants:	785
+New Variants:	91
+
+The file is: L-3673_final.bam.snp.final
+The sample name retrieved is: L-3673
+
+The sample L-3673 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample L-3673
+
+SAMPLE:	L-3673
+TOTAL Variants:	820
+Shared Variants:	820
+New Variants:	0
+
+The file is: 87427_final.bam.snp.final
+The sample name retrieved is: 87427
+
+The sample 87427 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 87427
+
+SAMPLE:	87427
+TOTAL Variants:	850
+Shared Variants:	755
+New Variants:	95
+
+The file is: P2-10668_final.bam.snp.final
+The sample name retrieved is: P2-10668
+
+The sample P2-10668 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample P2-10668
+
+SAMPLE:	P2-10668
+TOTAL Variants:	777
+Shared Variants:	622
+New Variants:	155
+
+The file is: RABAT14_final.bam.snp.final
+The sample name retrieved is: RABAT14
+
+The sample RABAT14 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample RABAT14
+
+SAMPLE:	RABAT14
+TOTAL Variants:	848
+Shared Variants:	843
+New Variants:	5
+
+The file is: 6500_final.bam.snp.final
+The sample name retrieved is: 6500
+
+The sample 6500 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 6500
+
+SAMPLE:	6500
+TOTAL Variants:	880
+Shared Variants:	839
+New Variants:	41
+
+The file is: JP9_final.bam.snp.final
+The sample name retrieved is: JP9
+
+The sample JP9 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample JP9
+
+SAMPLE:	JP9
+TOTAL Variants:	896
+Shared Variants:	840
+New Variants:	56
+
+The file is: T18-054_final.bam.snp.final
+The sample name retrieved is: T18-054
+
+The sample T18-054 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample T18-054
+
+SAMPLE:	T18-054
+TOTAL Variants:	6
+Shared Variants:	6
+New Variants:	0
+
+The file is: 128-B-1300432_final.bam.snp.final
+The sample name retrieved is: 128-B-1300432
+
+The sample 128-B-1300432 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 128-B-1300432
+
+SAMPLE:	128-B-1300432
+TOTAL Variants:	819
+Shared Variants:	749
+New Variants:	70
+
+The file is: SRR1657068_final.bam.snp.final
+The sample name retrieved is: SRR1657068
+
+The sample SRR1657068 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample SRR1657068
+
+SAMPLE:	SRR1657068
+TOTAL Variants:	159
+Shared Variants:	0
+New Variants:	4
+
+The file is: 5378_final.bam.snp.final
+The sample name retrieved is: 5378
+
+The sample 5378 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 5378
+
+SAMPLE:	5378
+TOTAL Variants:	873
+Shared Variants:	769
+New Variants:	104
+
+The file is: BJN-CANARIA_final.bam.snp.final
+The sample name retrieved is: BJN-CANARIA
+
+The sample BJN-CANARIA is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample BJN-CANARIA
+
+SAMPLE:	BJN-CANARIA
+TOTAL Variants:	888
+Shared Variants:	876
+New Variants:	12
+
+The file is: 113524511_final.bam.snp.final
+The sample name retrieved is: 113524511
+
+The sample 113524511 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 113524511
+
+SAMPLE:	113524511
+TOTAL Variants:	827
+Shared Variants:	782
+New Variants:	45
+
+The file is: 6-49128_final.bam.snp.final
+The sample name retrieved is: 6-49128
+
+The sample 6-49128 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 6-49128
+
+SAMPLE:	6-49128
+TOTAL Variants:	776
+Shared Variants:	715
+New Variants:	61
+
+The file is: AL-24844_final.bam.snp.final
+The sample name retrieved is: AL-24844
+
+The sample AL-24844 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample AL-24844
+
+SAMPLE:	AL-24844
+TOTAL Variants:	853
+Shared Variants:	811
+New Variants:	42
+
+The file is: Ra_final.bam.snp.final
+The sample name retrieved is: Ra
+
+The sample Ra is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample Ra
+
+SAMPLE:	Ra
+TOTAL Variants:	183
+Shared Variants:	105
+New Variants:	78
+
+The file is: C-07349_final.bam.snp.final
+The sample name retrieved is: C-07349
+
+The sample C-07349 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample C-07349
+
+SAMPLE:	C-07349
+TOTAL Variants:	887
+Shared Variants:	880
+New Variants:	7
+
+The file is: DE9-lib9825_final.bam.snp.final
+The sample name retrieved is: DE9-lib9825
+
+The sample DE9-lib9825 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample DE9-lib9825
+
+SAMPLE:	DE9-lib9825
+TOTAL Variants:	863
+Shared Variants:	604
+New Variants:	258
+
+The file is: 6-17441_final.bam.snp.final
+The sample name retrieved is: 6-17441
+
+The sample 6-17441 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 6-17441
+
+SAMPLE:	6-17441
+TOTAL Variants:	839
+Shared Variants:	832
+New Variants:	7
+
+The file is: 56850173_final.bam.snp.final
+The sample name retrieved is: 56850173
+
+The sample 56850173 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 56850173
+
+SAMPLE:	56850173
+TOTAL Variants:	893
+Shared Variants:	880
+New Variants:	13
+
+The file is: VP7-936_final.bam.snp.final
+The sample name retrieved is: VP7-936
+
+The sample VP7-936 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample VP7-936
+
+SAMPLE:	VP7-936
+TOTAL Variants:	878
+Shared Variants:	785
+New Variants:	93
+
+The file is: JP7_final.bam.snp.final
+The sample name retrieved is: JP7
+
+The sample JP7 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample JP7
+
+SAMPLE:	JP7
+TOTAL Variants:	901
+Shared Variants:	849
+New Variants:	52
+
+The file is: R8_12942_final.bam.snp.final
+The sample name retrieved is: R8
+
+The sample R8 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample R8
+
+SAMPLE:	R8
+TOTAL Variants:	880
+Shared Variants:	792
+New Variants:	88
+
+The file is: P107_final.bam.snp.final
+The sample name retrieved is: P107
+
+The sample P107 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample P107
+
+SAMPLE:	P107
+TOTAL Variants:	964
+Shared Variants:	956
+New Variants:	8
+
+The file is: P-5459_final.bam.snp.final
+The sample name retrieved is: P-5459
+
+The sample P-5459 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample P-5459
+
+SAMPLE:	P-5459
+TOTAL Variants:	885
+Shared Variants:	883
+New Variants:	2
+
+The file is: R8_55847_final.bam.snp.final
+The sample name retrieved is: R8
+
+This sample ALREADY exist, have a look
+
+SAMPLE:	R8
+TOTAL Variants:	886
+Shared Variants:	0
+New Variants:	0
+
+The file is: AL-93627_final.bam.snp.final
+The sample name retrieved is: AL-93627
+
+The sample AL-93627 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample AL-93627
+
+SAMPLE:	AL-93627
+TOTAL Variants:	865
+Shared Variants:	863
+New Variants:	2
+
+The file is: OP10_final.bam.snp.final
+The sample name retrieved is: OP10
+
+The sample OP10 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample OP10
+
+SAMPLE:	OP10
+TOTAL Variants:	873
+Shared Variants:	781
+New Variants:	92
+
+The file is: IT586_final.bam.snp.final
+The sample name retrieved is: IT586
+
+The sample IT586 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample IT586
+
+SAMPLE:	IT586
+TOTAL Variants:	891
+Shared Variants:	886
+New Variants:	5
+
+The file is: P1150_final.bam.snp.final
+The sample name retrieved is: P1150
+
+The sample P1150 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample P1150
+
+SAMPLE:	P1150
+TOTAL Variants:	885
+Shared Variants:	883
+New Variants:	2
+
+The file is: AL-67220_final.bam.snp.final
+The sample name retrieved is: AL-67220
+
+The sample AL-67220 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample AL-67220
+
+SAMPLE:	AL-67220
+TOTAL Variants:	832
+Shared Variants:	789
+New Variants:	43
+
+The file is: P-1207_final.bam.snp.final
+The sample name retrieved is: P-1207
+
+The sample P-1207 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample P-1207
+
+SAMPLE:	P-1207
+TOTAL Variants:	935
+Shared Variants:	929
+New Variants:	6
+
+The file is: G01683_final.bam.snp.final
+The sample name retrieved is: G01683
+
+The sample G01683 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample G01683
+
+SAMPLE:	G01683
+TOTAL Variants:	882
+Shared Variants:	872
+New Variants:	10
+
+The file is: P-1044_final.bam.snp.final
+The sample name retrieved is: P-1044
+
+The sample P-1044 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample P-1044
+
+SAMPLE:	P-1044
+TOTAL Variants:	838
+Shared Variants:	781
+New Variants:	57
+
+The file is: AL-3204708A_final.bam.snp.final
+The sample name retrieved is: AL-3204708A
+
+The sample AL-3204708A is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample AL-3204708A
+
+SAMPLE:	AL-3204708A
+TOTAL Variants:	890
+Shared Variants:	820
+New Variants:	70
+
+The file is: JP10_final.bam.snp.final
+The sample name retrieved is: JP10
+
+The sample JP10 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample JP10
+
+SAMPLE:	JP10
+TOTAL Variants:	906
+Shared Variants:	841
+New Variants:	65
+
+The file is: 6-85169_final.bam.snp.final
+The sample name retrieved is: 6-85169
+
+The sample 6-85169 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 6-85169
+
+SAMPLE:	6-85169
+TOTAL Variants:	813
+Shared Variants:	811
+New Variants:	2
+
+The file is: RABAT9_final.bam.snp.final
+The sample name retrieved is: RABAT9
+
+The sample RABAT9 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample RABAT9
+
+SAMPLE:	RABAT9
+TOTAL Variants:	850
+Shared Variants:	842
+New Variants:	8
+
+The file is: AI2809915_final.bam.snp.final
+The sample name retrieved is: AI2809915
+
+The sample AI2809915 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample AI2809915
+
+SAMPLE:	AI2809915
+TOTAL Variants:	842
+Shared Variants:	838
+New Variants:	4
+
+The file is: 1865_final.bam.snp.final
+The sample name retrieved is: 1865
+
+The sample 1865 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 1865
+
+SAMPLE:	1865
+TOTAL Variants:	894
+Shared Variants:	887
+New Variants:	7
+
+The file is: 2060_final.bam.snp.final
+The sample name retrieved is: 2060
+
+The sample 2060 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 2060
+
+SAMPLE:	2060
+TOTAL Variants:	803
+Shared Variants:	771
+New Variants:	32
+
+The file is: 83010615_final.bam.snp.final
+The sample name retrieved is: 83010615
+
+The sample 83010615 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 83010615
+
+SAMPLE:	83010615
+TOTAL Variants:	889
+Shared Variants:	883
+New Variants:	6
+
+The file is: G1274_final.bam.snp.final
+The sample name retrieved is: G1274
+
+The sample G1274 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample G1274
+
+SAMPLE:	G1274
+TOTAL Variants:	824
+Shared Variants:	808
+New Variants:	16
+
+The file is: AL48683_final.bam.snp.final
+The sample name retrieved is: AL48683
+
+The sample AL48683 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample AL48683
+
+SAMPLE:	AL48683
+TOTAL Variants:	871
+Shared Variants:	762
+New Variants:	109
+
+The file is: AL-12241_final.bam.snp.final
+The sample name retrieved is: AL-12241
+
+The sample AL-12241 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample AL-12241
+
+SAMPLE:	AL-12241
+TOTAL Variants:	864
+Shared Variants:	854
+New Variants:	10
+
+The file is: 92103651_final.bam.snp.final
+The sample name retrieved is: 92103651
+
+The sample 92103651 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 92103651
+
+SAMPLE:	92103651
+TOTAL Variants:	848
+Shared Variants:	734
+New Variants:	114
+
+The file is: Al-49991_final.bam.snp.final
+The sample name retrieved is: Al-49991
+
+The sample Al-49991 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample Al-49991
+
+SAMPLE:	Al-49991
+TOTAL Variants:	871
+Shared Variants:	771
+New Variants:	100
+
+The file is: C-32650_final.bam.snp.final
+The sample name retrieved is: C-32650
+
+The sample C-32650 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample C-32650
+
+SAMPLE:	C-32650
+TOTAL Variants:	896
+Shared Variants:	895
+New Variants:	1
+
+The file is: RABAT12_final.bam.snp.final
+The sample name retrieved is: RABAT12
+
+The sample RABAT12 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample RABAT12
+
+SAMPLE:	RABAT12
+TOTAL Variants:	855
+Shared Variants:	853
+New Variants:	2
+
+The file is: 135-B-1537878_final.bam.snp.final
+The sample name retrieved is: 135-B-1537878
+
+The sample 135-B-1537878 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 135-B-1537878
+
+SAMPLE:	135-B-1537878
+TOTAL Variants:	809
+Shared Variants:	808
+New Variants:	1
+
+The file is: 5588_final.bam.snp.final
+The sample name retrieved is: 5588
+
+The sample 5588 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 5588
+
+SAMPLE:	5588
+TOTAL Variants:	909
+Shared Variants:	786
+New Variants:	123
+
+The file is: P-5707_final.bam.snp.final
+The sample name retrieved is: P-5707
+
+The sample P-5707 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample P-5707
+
+SAMPLE:	P-5707
+TOTAL Variants:	868
+Shared Variants:	866
+New Variants:	2
+
+The file is: 87490_final.bam.snp.final
+The sample name retrieved is: 87490
+
+The sample 87490 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 87490
+
+SAMPLE:	87490
+TOTAL Variants:	851
+Shared Variants:	848
+New Variants:	3
+
+The file is: AL70358BUENA_final.bam.snp.final
+The sample name retrieved is: AL70358BUENA
+
+The sample AL70358BUENA is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample AL70358BUENA
+
+SAMPLE:	AL70358BUENA
+TOTAL Variants:	888
+Shared Variants:	886
+New Variants:	2
+
+The file is: MH-21197_final.bam.snp.final
+The sample name retrieved is: MH-21197
+
+The sample MH-21197 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample MH-21197
+
+SAMPLE:	MH-21197
+TOTAL Variants:	507
+Shared Variants:	493
+New Variants:	14
+
+The file is: AL3110907_final.bam.snp.final
+The sample name retrieved is: AL3110907
+
+The sample AL3110907 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample AL3110907
+
+SAMPLE:	AL3110907
+TOTAL Variants:	814
+Shared Variants:	769
+New Variants:	45
+
+The file is: ID0006088_final.bam.snp.final
+The sample name retrieved is: ID0006088
+
+The sample ID0006088 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample ID0006088
+
+SAMPLE:	ID0006088
+TOTAL Variants:	917
+Shared Variants:	909
+New Variants:	8
+
+The file is: T18-040_final.bam.snp.final
+The sample name retrieved is: T18-040
+
+The sample T18-040 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample T18-040
+
+SAMPLE:	T18-040
+TOTAL Variants:	576
+Shared Variants:	572
+New Variants:	4
+
+The file is: AL79183_final.bam.snp.final
+The sample name retrieved is: AL79183
+
+The sample AL79183 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample AL79183
+
+SAMPLE:	AL79183
+TOTAL Variants:	852
+Shared Variants:	852
+New Variants:	0
+
+The file is: R2_04352_final.bam.snp.final
+The sample name retrieved is: R2
+
+The sample R2 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample R2
+
+SAMPLE:	R2
+TOTAL Variants:	843
+Shared Variants:	784
+New Variants:	59
+
+The file is: AL4758107_final.bam.snp.final
+The sample name retrieved is: AL4758107
+
+The sample AL4758107 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample AL4758107
+
+SAMPLE:	AL4758107
+TOTAL Variants:	880
+Shared Variants:	879
+New Variants:	1
+
+The file is: C-30796_final.bam.snp.final
+The sample name retrieved is: C-30796
+
+The sample C-30796 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample C-30796
+
+SAMPLE:	C-30796
+TOTAL Variants:	890
+Shared Variants:	890
+New Variants:	0
+
+The file is: P10C_final.bam.snp.final
+The sample name retrieved is: P10C
+
+The sample P10C is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample P10C
+
+SAMPLE:	P10C
+TOTAL Variants:	947
+Shared Variants:	934
+New Variants:	13
+
+The file is: AL-1029308B_final.bam.snp.final
+The sample name retrieved is: AL-1029308B
+
+The sample AL-1029308B is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample AL-1029308B
+
+SAMPLE:	AL-1029308B
+TOTAL Variants:	885
+Shared Variants:	884
+New Variants:	1
+
+The file is: AL18267_final.bam.snp.final
+The sample name retrieved is: AL18267
+
+The sample AL18267 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample AL18267
+
+SAMPLE:	AL18267
+TOTAL Variants:	853
+Shared Variants:	790
+New Variants:	63
+
+The file is: A13908_final.bam.snp.final
+The sample name retrieved is: A13908
+
+The sample A13908 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample A13908
+
+SAMPLE:	A13908
+TOTAL Variants:	912
+Shared Variants:	831
+New Variants:	81
+
+The file is: 018817_final.bam.snp.final
+The sample name retrieved is: 018817
+
+The sample 018817 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 018817
+
+SAMPLE:	018817
+TOTAL Variants:	831
+Shared Variants:	789
+New Variants:	42
+
+The file is: R7_41732_final.bam.snp.final
+The sample name retrieved is: R7
+
+This sample ALREADY exist, have a look
+
+SAMPLE:	R7
+TOTAL Variants:	884
+Shared Variants:	0
+New Variants:	0
+
+The file is: P-2230_final.bam.snp.final
+The sample name retrieved is: P-2230
+
+The sample P-2230 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample P-2230
+
+SAMPLE:	P-2230
+TOTAL Variants:	261
+Shared Variants:	261
+New Variants:	0
+
+The file is: 142197622_final.bam.snp.final
+The sample name retrieved is: 142197622
+
+The sample 142197622 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 142197622
+
+SAMPLE:	142197622
+TOTAL Variants:	843
+Shared Variants:	753
+New Variants:	90
+
+The file is: 309924_final.bam.snp.final
+The sample name retrieved is: 309924
+
+The sample 309924 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 309924
+
+SAMPLE:	309924
+TOTAL Variants:	873
+Shared Variants:	865
+New Variants:	8
+
+The file is: IT318_final.bam.snp.final
+The sample name retrieved is: IT318
+
+The sample IT318 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample IT318
+
+SAMPLE:	IT318
+TOTAL Variants:	876
+Shared Variants:	876
+New Variants:	0
+
+The file is: AL-6244991_final.bam.snp.final
+The sample name retrieved is: AL-6244991
+
+The sample AL-6244991 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample AL-6244991
+
+SAMPLE:	AL-6244991
+TOTAL Variants:	861
+Shared Variants:	858
+New Variants:	3
+
+The file is: 6-37769_final.bam.snp.final
+The sample name retrieved is: 6-37769
+
+The sample 6-37769 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 6-37769
+
+SAMPLE:	6-37769
+TOTAL Variants:	833
+Shared Variants:	832
+New Variants:	1
+
+The file is: 6-48233_final.bam.snp.final
+The sample name retrieved is: 6-48233
+
+The sample 6-48233 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 6-48233
+
+SAMPLE:	6-48233
+TOTAL Variants:	809
+Shared Variants:	808
+New Variants:	1
+
+The file is: 1773_final.bam.snp.final
+The sample name retrieved is: 1773
+
+The sample 1773 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 1773
+
+SAMPLE:	1773
+TOTAL Variants:	876
+Shared Variants:	874
+New Variants:	2
+
+The file is: 2945707_final.bam.snp.final
+The sample name retrieved is: 2945707
+
+The sample 2945707 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 2945707
+
+SAMPLE:	2945707
+TOTAL Variants:	872
+Shared Variants:	872
+New Variants:	0
+
+The file is: Nantua4_final.bam.snp.final
+The sample name retrieved is: Nantua4
+
+The sample Nantua4 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample Nantua4
+
+SAMPLE:	Nantua4
+TOTAL Variants:	958
+Shared Variants:	956
+New Variants:	2
+
+The file is: Bjn28281_final.bam.snp.final
+The sample name retrieved is: Bjn28281
+
+The sample Bjn28281 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample Bjn28281
+
+SAMPLE:	Bjn28281
+TOTAL Variants:	1210
+Shared Variants:	911
+New Variants:	298
+
+The file is: L-3698_final.bam.snp.final
+The sample name retrieved is: L-3698
+
+The sample L-3698 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample L-3698
+
+SAMPLE:	L-3698
+TOTAL Variants:	767
+Shared Variants:	762
+New Variants:	5
+
+The file is: ALH2O2_final.bam.snp.final
+The sample name retrieved is: ALH2O2
+
+The sample ALH2O2 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample ALH2O2
+
+SAMPLE:	ALH2O2
+TOTAL Variants:	893
+Shared Variants:	890
+New Variants:	3
+
+The file is: P-5334_final.bam.snp.final
+The sample name retrieved is: P-5334
+
+The sample P-5334 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample P-5334
+
+SAMPLE:	P-5334
+TOTAL Variants:	867
+Shared Variants:	865
+New Variants:	2
+
+The file is: Al-3301407_final.bam.snp.final
+The sample name retrieved is: Al-3301407
+
+The sample Al-3301407 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample Al-3301407
+
+SAMPLE:	Al-3301407
+TOTAL Variants:	869
+Shared Variants:	867
+New Variants:	2
+
+The file is: T18-064_final.bam.snp.final
+The sample name retrieved is: T18-064
+
+The sample T18-064 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample T18-064
+
+SAMPLE:	T18-064
+TOTAL Variants:	112
+Shared Variants:	112
+New Variants:	0
+
+The file is: 1508_final.bam.snp.final
+The sample name retrieved is: 1508
+
+The sample 1508 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 1508
+
+SAMPLE:	1508
+TOTAL Variants:	825
+Shared Variants:	785
+New Variants:	40
+
+The file is: 14N1_final.bam.snp.final
+The sample name retrieved is: 14N1
+
+The sample 14N1 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 14N1
+
+SAMPLE:	14N1
+TOTAL Variants:	881
+Shared Variants:	784
+New Variants:	97
+
+The file is: Al-40037_final.bam.snp.final
+The sample name retrieved is: Al-40037
+
+The sample Al-40037 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample Al-40037
+
+SAMPLE:	Al-40037
+TOTAL Variants:	877
+Shared Variants:	872
+New Variants:	5
+
+The file is: Lyon2_final.bam.snp.final
+The sample name retrieved is: Lyon2
+
+The sample Lyon2 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample Lyon2
+
+SAMPLE:	Lyon2
+TOTAL Variants:	733
+Shared Variants:	646
+New Variants:	84
+
+The file is: Al-1554508_final.bam.snp.final
+The sample name retrieved is: Al-1554508
+
+The sample Al-1554508 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample Al-1554508
+
+SAMPLE:	Al-1554508
+TOTAL Variants:	862
+Shared Variants:	861
+New Variants:	1
+
+The file is: P5B_final.bam.snp.final
+The sample name retrieved is: P5B
+
+The sample P5B is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample P5B
+
+SAMPLE:	P5B
+TOTAL Variants:	837
+Shared Variants:	755
+New Variants:	82
+
+The file is: P97_final.bam.snp.final
+The sample name retrieved is: P97
+
+The sample P97 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample P97
+
+SAMPLE:	P97
+TOTAL Variants:	947
+Shared Variants:	938
+New Variants:	9
+
+The file is: F26451_final.bam.snp.final
+The sample name retrieved is: F26451
+
+The sample F26451 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample F26451
+
+SAMPLE:	F26451
+TOTAL Variants:	858
+Shared Variants:	858
+New Variants:	0
+
+The file is: 43732_final.bam.snp.final
+The sample name retrieved is: 43732
+
+The sample 43732 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 43732
+
+SAMPLE:	43732
+TOTAL Variants:	975
+Shared Variants:	894
+New Variants:	81
+
+The file is: AL-3754807_final.bam.snp.final
+The sample name retrieved is: AL-3754807
+
+The sample AL-3754807 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample AL-3754807
+
+SAMPLE:	AL-3754807
+TOTAL Variants:	856
+Shared Variants:	855
+New Variants:	1
+
+The file is: 76-47284_final.bam.snp.final
+The sample name retrieved is: 76-47284
+
+The sample 76-47284 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 76-47284
+
+SAMPLE:	76-47284
+TOTAL Variants:	845
+Shared Variants:	844
+New Variants:	1
+
+The file is: 113-29004_final.bam.snp.final
+The sample name retrieved is: 113-29004
+
+The sample 113-29004 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 113-29004
+
+SAMPLE:	113-29004
+TOTAL Variants:	853
+Shared Variants:	852
+New Variants:	1
+
+The file is: AL-69639_final.bam.snp.final
+The sample name retrieved is: AL-69639
+
+The sample AL-69639 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample AL-69639
+
+SAMPLE:	AL-69639
+TOTAL Variants:	892
+Shared Variants:	715
+New Variants:	177
+
+The file is: T18-030_final.bam.snp.final
+The sample name retrieved is: T18-030
+
+The sample T18-030 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample T18-030
+
+SAMPLE:	T18-030
+TOTAL Variants:	5
+Shared Variants:	5
+New Variants:	0
+
+The file is: 787_final.bam.snp.final
+The sample name retrieved is: 787
+
+The sample 787 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 787
+
+SAMPLE:	787
+TOTAL Variants:	501
+Shared Variants:	467
+New Variants:	34
+
+The file is: 5706_final.bam.snp.final
+The sample name retrieved is: 5706
+
+The sample 5706 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 5706
+
+SAMPLE:	5706
+TOTAL Variants:	894
+Shared Variants:	891
+New Variants:	3
+
+The file is: R2_31870_final.bam.snp.final
+The sample name retrieved is: R2
+
+This sample ALREADY exist, have a look
+
+SAMPLE:	R2
+TOTAL Variants:	837
+Shared Variants:	0
+New Variants:	0
+
+The file is: VP5-20126_final.bam.snp.final
+The sample name retrieved is: VP5-20126
+
+The sample VP5-20126 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample VP5-20126
+
+SAMPLE:	VP5-20126
+TOTAL Variants:	851
+Shared Variants:	851
+New Variants:	0
+
+The file is: 458-43536_final.bam.snp.final
+The sample name retrieved is: 458-43536
+
+The sample 458-43536 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample 458-43536
+
+SAMPLE:	458-43536
+TOTAL Variants:	891
+Shared Variants:	889
+New Variants:	2
+
+The file is: IT738_final.bam.snp.final
+The sample name retrieved is: IT738
+
+The sample IT738 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample IT738
+
+SAMPLE:	IT738
+TOTAL Variants:	671
+Shared Variants:	666
+New Variants:	5
+
+The file is: AL59100_final.bam.snp.final
+The sample name retrieved is: AL59100
+
+The sample AL59100 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample AL59100
+
+SAMPLE:	AL59100
+TOTAL Variants:	877
+Shared Variants:	866
+New Variants:	11
+
+The file is: P1-78289_final.bam.snp.final
+The sample name retrieved is: P1-78289
+
+The sample P1-78289 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample P1-78289
+
+SAMPLE:	P1-78289
+TOTAL Variants:	834
+Shared Variants:	773
+New Variants:	61
+
+The file is: P1B_final.bam.snp.final
+The sample name retrieved is: P1B
+
+The sample P1B is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample P1B
+
+SAMPLE:	P1B
+TOTAL Variants:	772
+Shared Variants:	586
+New Variants:	186
+
+The file is: AL-202709_final.bam.snp.final
+The sample name retrieved is: AL-202709
+
+The sample AL-202709 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample AL-202709
+
+SAMPLE:	AL-202709
+TOTAL Variants:	845
+Shared Variants:	810
+New Variants:	35
+
+The file is: CCM788_final.bam.snp.final
+The sample name retrieved is: CCM788
+
+The sample CCM788 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample CCM788
+
+SAMPLE:	CCM788
+TOTAL Variants:	885
+Shared Variants:	884
+New Variants:	1
+
+The file is: Al-46006.5_final.bam.snp.final
+The sample name retrieved is: Al-46006.5
+
+The sample Al-46006.5 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample Al-46006.5
+
+SAMPLE:	Al-46006.5
+TOTAL Variants:	880
+Shared Variants:	879
+New Variants:	1
+
+The file is: F-29406_final.bam.snp.final
+The sample name retrieved is: F-29406
+
+The sample F-29406 is NOT in final ddbb. Adding sample
+Checking positions(SNPs) in sample F-29406
+
+SAMPLE:	F-29406
+TOTAL Variants:	859
+Shared Variants:	859
+New Variants:	0
+
+The file is: 1098_final.bam.snp.final
+The sample name retrieved is: 1098
+
+The sample 1098 is NOT in final ddbb. Adding sample
