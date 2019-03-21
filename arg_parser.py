@@ -1,10 +1,13 @@
+#TODO: Include option --new as mutually exclusive with database in case user wants to "update" an empty database
+
+
 import argparse
 
 #Define parser and program
 parser = argparse.ArgumentParser(prog = "VCF_DDTB.py", description= "VCF_DDTB manages a custom snp database") 
 
 #Define subtask/subparsers
-subparsers = parser.add_subparsers( dest = "subtask", help = "update / compare commands either update or compare exixting samples",)
+subparsers = parser.add_subparsers( dest = "subtask", help = "update / compare / extract commands either add new samples, compare or discard exixting samples",)
 
 update_parser = subparsers.add_parser("update", help = "Add new sample using a list of variants, files supplied or files on folder")
 compare_parser = subparsers.add_parser("compare", help = "Comapare samples supplied or all samples to obtain a pirwise matrix")
@@ -12,8 +15,12 @@ extract_parser = subparsers.add_parser("extract", help = "Remove samples supplie
 
 
 #update_parser
-update_parser.add_argument("-d", "--database",  dest = "final_database", required= True, metavar="TB_database", help="REQUIRED: csv file with the database to be enriched/consulted")
 update_parser.add_argument("-o", "--outputfile",  dest = "output_file", required= True, metavar="filename", help="REQUIRED: file name, including PATH, of the updated ddbb")
+
+input_update_exclusive = update_parser.add_mutually_exclusive_group()
+
+input_update_exclusive.add_argument("-d", "--database",  dest = "final_database", required= False, metavar="TB_database", help="REQUIRED: csv file with the database to be enriched/consulted")
+input_update_exclusive.add_argument("-n", "--new",  dest = "new_database", required= False, action="store_true", help="REQUIRED: start a new database if for comparing")
 
 
 update_exclusive = update_parser.add_mutually_exclusive_group()
@@ -59,3 +66,5 @@ out_file = arguments.output_file
 
 print("File is %s" % file)
 print("Out File is %s" % out_file)
+
+print(arguments)

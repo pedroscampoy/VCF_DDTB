@@ -10,7 +10,8 @@ import argparse
     #- create a file with the date as backup
     #- handle when sample exist
 
-directory = "/home/laura/DATABASES/SNP_FINAL/FINAL_APRIL_2019"
+#directory = "/home/laura/DATABASES/SNP_FINAL/FINAL_APRIL_2019"
+directory = "/home/laura/ANALYSIS/Pipeline_TB/190318/Comparing_015"
 cwd = os.getcwd()
 
 
@@ -134,14 +135,14 @@ pd.set_option('display.precision', 0)
 
 #pd.set_option('precision', 5)
 #pd.options.display.float_format = '{:,0f}'.format
-final_ddbb = final_ddbb.fillna(0)
-
-#.sort_values("Position")
+final_ddbb = final_ddbb.fillna(0).sort_values("Position")
     
 print("Final database now contains %s rows and %s columns" % final_ddbb.shape)
 #print(final_ddbb)
 
-final_ddbb.to_csv("final_april_2019.csv", sep='\t', index=False)
+#final_ddbb.to_csv("final_april_2019.csv", sep='\t', index=False)
+
+final_ddbb.to_csv("/home/laura/ANALYSIS/Pipeline_TB/190318/Comparing_015/190318.csv", sep='\t', index=False)
 
 #Create a Pandas Excel writer using XlsxWriter as the engine.
 #writer = pd.ExcelWriter("pandas_column_formats.xlsx", engine='xlsxwriter')
