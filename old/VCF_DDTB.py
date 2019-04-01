@@ -13,7 +13,7 @@ import argparse
 #directory = "/home/laura/DATABASES/SNP_FINAL/FINAL_APRIL_2019"
 directory = "/home/laura/ANALYSIS/Pipeline_TB/190318/Comparing_015"
 cwd = os.getcwd()
-
+df_ = pd.DataFrame(columns=['file','count'])
 
 
 final_ddbb = pd.read_csv("DDBB_TB_FINAL.csv", sep=',', header=0)
