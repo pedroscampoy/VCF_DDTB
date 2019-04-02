@@ -34,9 +34,27 @@ def get_arguments():
      #Define subtask/subparsers
      subparsers = parser.add_subparsers( dest = "subtask", help = "update / compare / extract commands either add new samples, compare or discard exixting samples",)
 
+     new_parser = subparsers.add_parser("new", help = "Create new ddbb with presence/absence of snp")
      update_parser = subparsers.add_parser("update", help = "Add new sample using a list of variants, files supplied or files on folder")
      compare_parser = subparsers.add_parser("compare", help = "Comapare samples supplied or all samples to obtain a pirwise matrix")
      extract_parser = subparsers.add_parser("extract", help = "Remove samples supplied from databse")
+
+
+    #new_parser
+     new_parser.add_argument("-o", "--outputfile",  dest = "output_file", required= True, metavar="filename", help="REQUIRED: file name, including PATH, of the newd ddbb")
+
+     input_new_exclusive = new_parser.add_mutually_exclusive_group()
+
+     input_new_exclusive.add_argument("-d", "--database",  dest = "final_database", required= False, metavar="TB_database", help="REQUIRED: csv file with the database to be enriched/consulted")
+     input_new_exclusive.add_argument("-n", "--new",  dest = "new_database", required= False, action="store_true", help="REQUIRED: start a new database if for comparing")
+
+
+     new_exclusive = new_parser.add_mutually_exclusive_group()
+
+     new_exclusive.add_argument("-F", "--folder",  dest = "folder", metavar="folder",required= False, type=str, help="Folder containinig files with snp positions")
+     new_exclusive.add_argument("-f", "--file",  dest = "single_file", metavar="file[s]", required= False, type=str, help="individual files with snp positions")
+     new_exclusive.add_argument("-l", "--list",  dest = "snp_list", metavar="list", required= False, help="file with a list of positions in a column, not vcf format")
+
 
 
      #update_parser
@@ -201,32 +219,18 @@ for filename in os.listdir(directory):
         #Create small report with basic count
         #####################################
         
-        #print("%s new positions from %s were added to final ddbb: %s" % (len(positions_added), sample, positions_added))
-        #print("%s positions from %s were already in final ddbb: %s" % (len(positions_shared), sample, positions_shared))
-        
         print("\nSAMPLE:\t%s\nTOTAL Variants:\t%s\n\Shared Variants:\t%s\nNew Variants:\t%s\n" \
              % (sample, len(new_sample.index), len(positions_shared), len(positions_added)))
-        
-#Finally NaN are replaced by 0, decimals are not displayed and posiitons are sorted
-#df.astype(int) AND set_option('precision', 0) doesn't work with string cells
 
 #final_ddbb = final_ddbb["Position"].astype(int)
 pd.set_option('display.precision', 0)
 #pd.reset_option('^display.', silent=True) #Reset options in case I mess up
 
-#pd.set_option('precision', 5)
-#pd.options.display.float_format = '{:,0f}'.format
 final_ddbb = final_ddbb.fillna(0).sort_values("Position")
     
 print("Final database now contains %s rows and %s columns" % final_ddbb.shape)
 #print(final_ddbb)
 
-#final_ddbb.to_csv("final_april_2019.csv", sep='\t', index=False)
-
 final_ddbb.to_csv(args.output_file, sep='\t', index=False)
 
-#Create a Pandas Excel writer using XlsxWriter as the engine.
-#writer = pd.ExcelWriter("pandas_column_formats.xlsx", engine='xlsxwriter')
 
-#Convert the dataframe to an XlsxWriter Excel object.
-#df.to_excel(writer, sheet_name='Sheet1')
