@@ -1,3 +1,5 @@
+#!/home/laura/env36/bin/python
+
 import os
 import pandas as pd
 from sklearn.metrics import jaccard_similarity_score, pairwise_distances
@@ -5,7 +7,6 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import argparse
 from misc import check_file_exists, import_to_pandas
-
 
 def compare_jaccard_columns(sample1, sample2, df):
     jaccard_similarity = jaccard_similarity_score(df[sample1], df[sample2])

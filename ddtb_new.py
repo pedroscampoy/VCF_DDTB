@@ -1,9 +1,9 @@
 #!/home/laura/env36/bin/python
+
 import os
 import pandas as pd
 import argparse
 from misc import check_file_exists, import_to_pandas
-
 
 def blank_database():
     new_pandas_ddtb = pd.DataFrame(columns=['Position','N', 'Samples'])

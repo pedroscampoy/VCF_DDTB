@@ -30,6 +30,7 @@ import ddtb_compare
 import ddtb_update
 import ddtb_extract
 
+
 def get_arguments():
 
      #Define parser and program
@@ -93,6 +94,7 @@ def get_arguments():
     #- exit if file don't exist
     #- create a file with the date as backup
     #- handle when sample exist
+    #- handle cwd instead of full path
 
 
 
