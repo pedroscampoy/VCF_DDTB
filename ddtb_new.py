@@ -3,7 +3,7 @@
 import os
 import pandas as pd
 import argparse
-from misc import check_file_exists, import_to_pandas
+from misc import check_file_exists, import_to_pandas, extract_sample_snp_final
 
 def blank_database():
     new_pandas_ddtb = pd.DataFrame(columns=['Position','N', 'Samples'])
@@ -17,9 +17,7 @@ def ddtb_new(args):
     final_ddbb = blank_database()
 
     print("Previous final database contains %s rows and %s columns\n" % final_ddbb.shape)
-
     print("The directory selected is: %s" % directory)
-
 
     for filename in os.listdir(directory):
         if not filename.startswith('.'):
@@ -28,41 +26,22 @@ def ddtb_new(args):
             positions_shared = []
             positions_added = []
             
-            #Manage sample name. Split by "_" and take the first word on the left
-            ###################
-            sample = filename.split("_")[0]        
+            sample = extract_sample_snp_final(filename) #Manage sample name
             
-            #Manage file[s]. Check if file exist and is greater than 0
-            ###############
             file = os.path.join(directory, filename) #Whole file path
-            file_info = os.stat(file) #Retrieve the file info to check if has size > 0
+            check_file_exists(file) #Manage file[s]. Check if file exist and is greater than 0
 
-
-            if os.path.isfile(file) and file_info.st_size > 0:
-                
-                pass
-
-            else:
-                print("ERROR: Your file %s does not exist or is empty" % filename)
-
-            #Import files in annotated vcf format
-            #####################################
-
-            #new_sample = pd.read_csv(file, sep='\t', skiprows=[0], header=None)
-            new_sample = import_to_pandas(file)
+            new_sample = import_to_pandas(file) #Import files in annotated vcf format
 
             #Handle each new_sample
-            #######################
-            
             print("This file contains %s SNPs" % len(new_sample.index))
             
             #Check if sample exist
             ######################
-            
             if sample not in final_ddbb.columns.tolist():
                 print("The sample %s is NOT in final ddbb. Adding sample" % sample)
                 #print("Adding new sample %s to final ddbb" % sample)
-                
+
                 #extrac the number of columns to insert a new one
                 new_colum_index = len(final_ddbb.columns)
                 #final_ddbb[sample] = sample #adds a new column but fills all blanks with the value sample
