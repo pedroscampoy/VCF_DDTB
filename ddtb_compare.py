@@ -6,11 +6,30 @@ from sklearn.metrics import jaccard_similarity_score, pairwise_distances
 import seaborn as sns
 import matplotlib.pyplot as plt
 import argparse
+import datetime
+import scipy.cluster.hierarchy as shc
+import scipy.cluster.hierarchy as shc
+import scipy.spatial.distance as ssd #pdist
+import PyQt5
+from PyQt5 import QtGui
+import ete3
+from ete3 import Tree, TreeStyle
+
 from misc import check_file_exists, import_to_pandas
 
-def compare_jaccard_columns(sample1, sample2, df):
-    jaccard_similarity = jaccard_similarity_score(df[sample1], df[sample2])
-    return jaccard_similarity
+
+END_FORMATTING = '\033[0m'
+WHITE_BG = '\033[0;30;47m'
+BOLD = '\033[1m'
+UNDERLINE = '\033[4m'
+RED = '\033[31m'
+GREEN = '\033[32m'
+MAGENTA = '\033[35m'
+BLUE =  '\033[34m'
+CYAN = '\033[36m'
+YELLOW = '\033[93m'
+DIM = '\033[2m'
+
 
 def compare_snp_columns(sample1, sample2, df):
     jaccard_similarity = jaccard_similarity_score(df[sample1], df[sample2]) #similarities between colums
@@ -24,24 +43,123 @@ def snp_distance_pairwise(dataframe, output_file):
     with open(output_file, "a") as f:
         for sample1 in dataframe.iloc[:,3:].columns: #remove first 3 colums
             for sample2 in dataframe.iloc[:,3:].columns:
-                snp_distance = compare_snp_columns(sample1, sample2, dataframe)
-                line_distance = "%s\t%s\t%s\n" % (sample1, sample2, snp_distance)
-                f.write(line_distance) 
-                #print(sample1, sample2, snp_distance)
+                if sample1 != sample2:
+                    snp_distance = compare_snp_columns(sample1, sample2, dataframe)
+                    line_distance = "%s\t%s\t%s\n" % (sample1, sample2, snp_distance)
+                    f.write(line_distance)
 
-def snp_distance_matrix(dataframe):
-    data_hamming = dataframe.set_index(dataframe['Position'].astype(int)).drop(['Position','N','Samples'], axis=1) #extract three first colums and use 'Position' as index
-    hamming_distance = pairwise_distances(data_hamming.T, metric = "hamming") #dataframe.T means transposed
-    snp_distance_df = pd.DataFrame(hamming_distance * len(data_hamming.index), index=data_hamming.columns, columns=data_hamming.columns) #Add index
-    snp_distance_df = snp_distance.astype(int)
-    return snp_distance_df
+def snp_distance_matrix(dataframe, output_file):
+    dataframe_only_samples = dataframe.set_index(dataframe['Position'].astype(int)).drop(['Position','N','Samples'], axis=1) #extract three first colums and use 'Position' as index
+    hamming_distance = pairwise_distances(dataframe_only_samples.T, metric = "hamming") #dataframe.T means transposed
+    snp_distance_df = pd.DataFrame(hamming_distance * len(dataframe_only_samples.index), index=dataframe_only_samples.columns, columns=dataframe_only_samples.columns) #Add index
+    snp_distance_df = snp_distance_df.astype(int)
+    snp_distance_df.to_csv(output_file, sep='\t', index=True)
+
+def hamming_distance_matrix(dataframe, output_file):
+    dataframe_only_samples = dataframe.set_index(dataframe['Position'].astype(int)).drop(['Position','N','Samples'], axis=1) #extract three first colums and use 'Position' as index
+    hamming_distance = pairwise_distances(dataframe_only_samples.T, metric = "hamming") #dataframe.T means transposed
+    hamming_distance_df = pd.DataFrame(hamming_distance, index=dataframe_only_samples.columns, columns=dataframe_only_samples.columns) #Add index
+    hamming_distance_df.to_csv(output_file, sep='\t', index=True)
+
+def clustermap_dataframe(dataframe, output_file):
+    dataframe_only_samples = dataframe.set_index(dataframe['Position'].astype(int)).drop(['Position','N','Samples'], axis=1) #extract three first colums and use 'Position' as index
+    sns.clustermap(dataframe_only_samples, annot=False, cmap="YlGnBu", figsize=(13, 13))
+    plt.savefig(output_file, format="png")
+
+def dendogram_dataframe(dataframe, output_file):
+    dataframe_only_samples = dataframe.set_index(dataframe['Position'].astype(int)).drop(['Position','N','Samples'], axis=1) #extract three first colums and use 'Position' as index
+    labelList = dataframe_only_samples.columns.tolist()
+    linked = shc.linkage(dataframe_only_samples.T, method='ward') #method='single'
+    plt.figure(figsize=(150, 20))
+    #plt.xticks(fontsize=tick_fontsize)
+    shc.dendrogram(linked, labels=labelList, distance_sort='descending', show_leaf_counts=True)
+    plt.savefig(output_file, format="png")
+
+# Convert dendrogram to Newick
+def linkage_to_newick(dataframe, output_file):
+    """
+    Thanks to https://github.com/biocore/scikit-bio/issues/1579
+    Input :  Z = linkage matrix, labels = leaf labels
+    Output:  Newick formatted tree string
+    """
+    dataframe_only_samples = dataframe.set_index(dataframe['Position'].astype(int)).drop(['Position','N','Samples'], axis=1) #extract three first colums and use 'Position' as index
+    labelList = dataframe_only_samples.columns.tolist()
+    linked = shc.linkage(dataframe_only_samples.T, method='ward')
+
+    tree = shc.to_tree(linked, False)
+    def buildNewick(node, newick, parentdist, leaf_names):
+        if node.is_leaf():
+            #print("%s:%f%s" % (leaf_names[node.id], parentdist - node.dist, newick))
+            return "%s:%f%s" % (leaf_names[node.id], parentdist - node.dist, newick)
+        else:
+            if len(newick) > 0:
+                newick = f"):{(parentdist - node.dist)/2}{newick}"
+            else:
+                newick = ");"
+            newick = buildNewick(node.get_left(), newick, node.dist, leaf_names)
+            newick = buildNewick(node.get_right(), ",%s" % (newick), node.dist, leaf_names)
+            newick = "(%s" % (newick)
+            #print(newick)
+            return newick
+            
+    return buildNewick(tree, "", tree.dist, labelList)
 
 
 
 def ddtb_compare(args):
+
+    database_file = os.path.abspath(args.final_database)
+    check_file_exists(database_file)
+    presence_ddbb = import_to_pandas(database_file, header=True)
+
+    if args.output_file:
+        output_file = os.path.abspath(args.output_file)
+        output_path = output_file.split(".")[0]
+    else:
+        output_path = database_file.split(".")[0]
+
+    print("Output path is: " + output_path)
+
     if args.all_compare:
-        snp_distance_matrix(args.databse)
-    print("You choose COMPARE - This option is not yet implemented - sorry")
+        print(BLUE + BOLD + "Comparing all samples in " + database_file + END_FORMATTING)
+        prior_pairwise = datetime.datetime.now()
+
+        #Calculate pairwise snp distance for all and save file
+        print(CYAN + "Pairwise distance" + END_FORMATTING)
+        pairwise_file = output_path + ".snp.pairwise.tsv"
+        snp_distance_pairwise(presence_ddbb, pairwise_file)
+        after_pairwise = datetime.datetime.now()
+        print("Done with pairwise in: %s" % (after_pairwise - prior_pairwise))
+
+        #Calculate snp distance for all and save file
+        print(CYAN + "SNP distance" + END_FORMATTING)
+        snp_dist_file = output_path + ".snp.tsv"
+        snp_distance_matrix(presence_ddbb, snp_dist_file)
+
+        #Calculate hamming distance for all and save file
+        print(CYAN + "Hamming distance" + END_FORMATTING)
+        hmm_dist_file = output_path + ".hamming.tsv"
+        hamming_distance_matrix(presence_ddbb, hmm_dist_file)
+
+        #Represent pairwise snp distance for all and save file
+        print(CYAN + "Drawing distance" + END_FORMATTING)
+        prior_represent = datetime.datetime.now()
+        png_dist_file = output_path + ".snp.distance.png"
+        clustermap_dataframe(presence_ddbb, png_dist_file)
+        after_represent = datetime.datetime.now()
+        print("Done with distance drawing in: %s" % (after_represent - prior_represent))
+
+        #Represent pairwise snp distance for all and save file
+        print(CYAN + "Drawing dendrogram" + END_FORMATTING)
+        prior_represent = datetime.datetime.now()
+        png_dist_file = output_path + ".snp.distance.png"
+        clustermap_dataframe(presence_ddbb, png_dist_file)
+        after_represent = datetime.datetime.now()
+        print("Done with dendrogram drawing in: %s" % (after_represent - prior_represent))
+
+
+    else:
+        print("sample mode is not implemented")
 
 
 

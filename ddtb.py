@@ -69,7 +69,7 @@ def get_arguments():
 
      #compare_parser
      compare_parser.add_argument("-d", "--database",  dest = "final_database", required= True, metavar="TB_database", help="REQUIRED: csv file with the database to be enriched/consulted")
-     compare_parser.add_argument("-o", "--outputfile",  dest = "output_file", required= True, metavar="filename", help="REQUIRED: file name, including PATH, of the matrix comparison")
+     compare_parser.add_argument("-o", "--outputfile",  dest = "output_file", required= False, metavar="filename", help="REQUIRED: file name, including PATH, of the matrix comparison")
 
      compare_exclusive = compare_parser.add_mutually_exclusive_group()
 
@@ -105,7 +105,8 @@ if args.subtask == 'new' :
 elif args.subtask == 'compare':
         ddtb_compare.ddtb_compare(args)
 elif args.subtask == 'update':
-        ddtb_update.ddtb_update(args)
+        ddtb_new.ddtb_new(args)
+        #ddtb_update.ddtb_update(args)
 elif args.subtask == 'extract':
         ddtb_extract.ddtb_extract(args)
 
