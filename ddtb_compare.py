@@ -8,7 +8,6 @@ import matplotlib.pyplot as plt
 import argparse
 import datetime
 import scipy.cluster.hierarchy as shc
-import scipy.cluster.hierarchy as shc
 import scipy.spatial.distance as ssd #pdist
 import PyQt5
 from PyQt5 import QtGui
@@ -70,9 +69,18 @@ def dendogram_dataframe(dataframe, output_file):
     dataframe_only_samples = dataframe.set_index(dataframe['Position'].astype(int)).drop(['Position','N','Samples'], axis=1) #extract three first colums and use 'Position' as index
     labelList = dataframe_only_samples.columns.tolist()
     linked = shc.linkage(dataframe_only_samples.T, method='ward') #method='single'
-    plt.figure(figsize=(150, 20))
-    #plt.xticks(fontsize=tick_fontsize)
-    shc.dendrogram(linked, labels=labelList, distance_sort='descending', show_leaf_counts=True)
+
+    plt.rcParams['lines.linewidth'] = 8 #Dendrogram line with
+    plt.rcParams['xtick.major.size'] = 10 #Only affect to tick (line) size
+    plt.rcParams.update({'font.size': 30}) #Increase x tick label size
+    #plt.tick_params(labelsize=30)
+    plt.figure(figsize=(30, 50))
+    plt.ylabel('samples', fontsize=30)
+    plt.xlabel('snp distance', fontsize=30)
+
+    shc.dendrogram(linked, labels=labelList, orientation='left', distance_sort='descending', show_leaf_counts=True, color_threshold=10, leaf_font_size=20)
+
+    
     plt.savefig(output_file, format="png")
 
 # Convert dendrogram to Newick
@@ -101,7 +109,9 @@ def linkage_to_newick(dataframe, output_file):
             newick = "(%s" % (newick)
             #print(newick)
             return newick
-            
+
+    with open(output_file, 'w') as f:
+        f.write(buildNewick(tree, "", tree.dist, labelList))
     return buildNewick(tree, "", tree.dist, labelList)
 
 
@@ -149,13 +159,16 @@ def ddtb_compare(args):
         after_represent = datetime.datetime.now()
         print("Done with distance drawing in: %s" % (after_represent - prior_represent))
 
-        #Represent pairwise snp distance for all and save file
+        #Represent dendrogram snp distance for all and save file
         print(CYAN + "Drawing dendrogram" + END_FORMATTING)
-        prior_represent = datetime.datetime.now()
-        png_dist_file = output_path + ".snp.distance.png"
-        clustermap_dataframe(presence_ddbb, png_dist_file)
-        after_represent = datetime.datetime.now()
-        print("Done with dendrogram drawing in: %s" % (after_represent - prior_represent))
+        png_dend_file = output_path + ".snp.dendrogram.png"
+        dendogram_dataframe(presence_ddbb, png_dend_file)
+
+
+        #Output a Newick file distance for all and save file
+        print(CYAN + "Newick dendrogram" + END_FORMATTING)
+        newick_file = output_path + ".nwk"
+        linkage_to_newick(presence_ddbb, newick_file)
 
 
     else:
