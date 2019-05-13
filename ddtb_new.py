@@ -103,7 +103,7 @@ def ddtb_new(args):
                         #Sum 1 to the numbes of samples containing the position
                         final_ddbb.loc[index_position,'N'] = number_samples_with_position + 1
                         final_ddbb.loc[index_position,'Samples'] = new_names_samples
-                        final_ddbb.loc[index_position,sample] = int(1) #Add "1" in cell with correct position vs sample (indicate present)
+                        final_ddbb.loc[index_position,sample] = str(1) #Add "1" in cell with correct position vs sample (indicate present)
 
                 print("\nSAMPLE:\t%s\nTOTAL Variants:\t%s\nShared Variants:\t%s\nNew Variants:\t%s\n"
                 % (sample, len(new_sample.index), len(positions_shared), len(positions_added)))
@@ -116,7 +116,8 @@ def ddtb_new(args):
     print("\n" + GREEN + "Position check Finished" + END_FORMATTING)
     print(GREEN + "Added " + str(new_samples) + " samples out of " + str(all_samples) + END_FORMATTING + "\n")
     #Sort positions and save new DDBB to TSV
-    pd.set_option('display.precision', 0)
+    final_ddbb['N'] = final_ddbb['N'].astype(int)
+    #pd.set_option('display.precision', 0)
     #pd.reset_option('^display.', silent=True) #Reset options in case I mess up
 
     final_ddbb = final_ddbb.fillna(0).sort_values("Position") #final_ddbb = final_ddbb["Position"].astype(int)
