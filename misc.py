@@ -38,7 +38,7 @@ def import_to_pandas(file_table, header=False, sep='\t'):
     
     return dataframe
 
-def remove_if_exixt(file):
+def remove_if_exist(file):
     if os.path.exists(file):
         os.remove(file)
 
@@ -66,3 +66,27 @@ def extract_sample_snp_final(snp_final):
         sample_name = sample_name_R
 
     return sample_name
+
+def import_VCF4_to_pandas(vcf_file, sep='\t'):
+    header_lines = 0
+    with open(vcf_file) as f:
+        first_line = f.readline().strip()
+        next_line = f.readline().strip()
+        while next_line.startswith("##"):
+            header_lines = header_lines + 1
+            #print(next_line)
+            next_line = f.readline()
+    
+    if first_line.endswith('VCFv4.2'):
+        
+        #Use first line as header
+        dataframe = pd.read_csv(vcf_file, sep=sep, skiprows=[header_lines], header=header_lines)
+        sample = dataframe.columns[-1]
+        dataframe.rename(columns={sample:'sample'}, inplace=True)
+        dataframe['POS'] = dataframe['POS'].astype(int)
+        
+    else:
+        print("This vcf file is not v4.2")
+        sys.exit(1)
+           
+    return dataframe

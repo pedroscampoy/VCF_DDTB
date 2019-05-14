@@ -25,7 +25,7 @@ def blank_database():
     return new_pandas_ddtb
 
 
-def ddtb_new(args):
+def ddtb_add(args):
     directory = os.path.abspath(args.folder)
     output_file = os.path.abspath(args.output_file)
 
@@ -49,25 +49,22 @@ def ddtb_new(args):
     print("The directory selected is: %s" % directory)
     
 
-
-
-
     all_samples = 0
     new_samples = 0
     for filename in os.listdir(directory):
-        if not filename.startswith('.') and filename.endswith(".snp.final"):
+        if not filename.startswith('.') and filename.endswith("final.snp.hf.pass.vcf"):
             print("\nThe file is: %s" % filename)
             
             all_samples = all_samples + 1
             positions_shared = []
             positions_added = []
             
-            sample = extract_sample_snp_final(filename) #Manage sample name
+            sample = filename.split(".")[0] #Manage sample name
             
             file = os.path.join(directory, filename) #Whole file path
             check_file_exists(file) #Manage file[s]. Check if file exist and is greater than 0
 
-            new_sample = import_to_pandas(file) #Import files in annotated vcf format
+            new_sample = import_VCF4_to_pandas(file) #Import files in annotated vcf format
 
             #Handle each new_sample
             #print("This file contains %s SNPs" % len(new_sample.index))
@@ -83,7 +80,7 @@ def ddtb_new(args):
                 
                 #Check if position exist
                 ########################
-                for position in new_sample.iloc[:,0].unique(): #extract first column in file
+                for position in new_sample['POS'].unique(): #extract first column in file
                     
                     if position not in final_ddbb["Position"].values:
                         positions_added.append(position) #Count new positions for stats

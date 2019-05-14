@@ -25,7 +25,7 @@ import os
 import pandas as pd
 import argparse
 from misc import check_file_exists, import_to_pandas
-import ddtb_new
+import ddtb_add
 import ddtb_compare
 import ddtb_update
 import ddtb_extract
@@ -47,6 +47,7 @@ def get_arguments():
 
     #new_parser
      new_parser.add_argument("-o", "--outputfile",  dest = "output_file", required= True, metavar="filename", help="REQUIRED: file name, including PATH, of the newd ddbb")
+     new_parser.add_argument("-v", "--vcf", required= False, action='store_true', help="Database will use vcf files instead of ")
 
      new_exclusive = new_parser.add_mutually_exclusive_group(required= True)
 
@@ -54,9 +55,10 @@ def get_arguments():
      new_exclusive.add_argument("-f", "--file",  dest = "single_file", metavar="file[s]", required= False, type=str, help="individual files with snp positions")
      new_exclusive.add_argument("-l", "--list",  dest = "snp_list", metavar="list", required= False, help="file with a list of positions in a column, not vcf format")
 
+
      #update_parser
      update_parser.add_argument("-o", "--outputfile",  dest = "output_file", required= True, metavar="filename", help="REQUIRED: file name, including PATH, of the updated ddbb")
-
+     update_parser.add_argument("-vs", "--snp-final", required= False, action='store_true', help="Database will use snp.fila instead of gatk vcf ")
      update_parser.add_argument("-d", "--database",  dest = "update_database", required= True, metavar="TB_database", help="REQUIRED: csv file with the database to be enriched/consulted")
 
      update_exclusive = update_parser.add_mutually_exclusive_group()
@@ -100,12 +102,14 @@ def get_arguments():
 
 args = get_arguments()
 
+print(args)
+
 if args.subtask == 'new' :
-        ddtb_new.ddtb_new(args)
+        ddtb_add.ddtb_add(args)
 elif args.subtask == 'compare':
         ddtb_compare.ddtb_compare(args)
 elif args.subtask == 'update':
-        ddtb_new.ddtb_new(args)
+        ddtb_add.ddtb_add(args)
         #ddtb_update.ddtb_update(args)
 elif args.subtask == 'extract':
         ddtb_extract.ddtb_extract(args)
