@@ -150,15 +150,15 @@ def ddtb_compare(args):
         print(CYAN + "Hamming distance" + END_FORMATTING)
         hmm_dist_file = output_path + ".hamming.tsv"
         hamming_distance_matrix(presence_ddbb, hmm_dist_file)
-
+        """
         #Represent pairwise snp distance for all and save file
         print(CYAN + "Drawing distance" + END_FORMATTING)
         prior_represent = datetime.datetime.now()
         png_dist_file = output_path + ".snp.distance.png"
-        clustermap_dataframe(presence_ddbb, png_dist_file)
+        #clustermap_dataframe(presence_ddbb, png_dist_file)
         after_represent = datetime.datetime.now()
         print("Done with distance drawing in: %s" % (after_represent - prior_represent))
-
+        """
         #Represent dendrogram snp distance for all and save file
         print(CYAN + "Drawing dendrogram" + END_FORMATTING)
         png_dend_file = output_path + ".snp.dendrogram.png"

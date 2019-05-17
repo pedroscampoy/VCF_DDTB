@@ -52,7 +52,7 @@ def ddtb_add(args):
     all_samples = 0
     new_samples = 0
     for filename in os.listdir(directory):
-        if not filename.startswith('.') and filename.endswith("final.snp.hf.pass.vcf"):
+        if not filename.startswith('.') and filename.endswith(".snp.hf.pass.final.vcf"):
             print("\nThe file is: %s" % filename)
             
             all_samples = all_samples + 1
