@@ -1,4 +1,4 @@
-#!/home/laura/env36/bin/python
+#!/usr/bin/env python
 
 import os
 import pandas as pd
@@ -16,6 +16,10 @@ from ete3 import Tree, TreeStyle
 
 from misc import check_file_exists, import_to_pandas
 
+"""
+TODO:   confirm 'average' method as the best option
+        confirm euclidean 'metric' as the most appropiate for SNP distance (hamming used so far)
+"""
 
 END_FORMATTING = '\033[0m'
 WHITE_BG = '\033[0;30;47m'
@@ -68,7 +72,7 @@ def clustermap_dataframe(dataframe, output_file):
 def dendogram_dataframe(dataframe, output_file):
     dataframe_only_samples = dataframe.set_index(dataframe['Position'].astype(int)).drop(['Position','N','Samples'], axis=1) #extract three first colums and use 'Position' as index
     labelList = dataframe_only_samples.columns.tolist()
-    linked = shc.linkage(dataframe_only_samples.T, method='ward') #method='single'
+    Z = shc.linkage(dataframe_only_samples.T, method='average') #method='single'
 
     plt.rcParams['lines.linewidth'] = 8 #Dendrogram line with
     plt.rcParams['xtick.major.size'] = 10 #Only affect to tick (line) size
@@ -78,7 +82,7 @@ def dendogram_dataframe(dataframe, output_file):
     plt.ylabel('samples', fontsize=30)
     plt.xlabel('snp distance', fontsize=30)
 
-    shc.dendrogram(linked, labels=labelList, orientation='left', distance_sort='descending', show_leaf_counts=True, color_threshold=10, leaf_font_size=20)
+    shc.dendrogram(Z, labels=labelList, orientation='left', distance_sort='descending', show_leaf_counts=True, color_threshold=10, leaf_font_size=20)
 
     
     plt.savefig(output_file, format="png")
@@ -92,9 +96,9 @@ def linkage_to_newick(dataframe, output_file):
     """
     dataframe_only_samples = dataframe.set_index(dataframe['Position'].astype(int)).drop(['Position','N','Samples'], axis=1) #extract three first colums and use 'Position' as index
     labelList = dataframe_only_samples.columns.tolist()
-    linked = shc.linkage(dataframe_only_samples.T, method='ward')
+    Z = shc.linkage(dataframe_only_samples.T, method='average')
 
-    tree = shc.to_tree(linked, False)
+    tree = shc.to_tree(Z, False)
     def buildNewick(node, newick, parentdist, leaf_names):
         if node.is_leaf():
             #print("%s:%f%s" % (leaf_names[node.id], parentdist - node.dist, newick))
