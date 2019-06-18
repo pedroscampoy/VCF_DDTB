@@ -97,6 +97,7 @@ def get_arguments():
     #- create a file with the date as backup
     #- handle when sample exist
     #- handle cwd instead of full path
+    #- if __name__ == "__main__":
 
 
 
