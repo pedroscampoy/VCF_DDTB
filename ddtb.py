@@ -48,6 +48,8 @@ def get_arguments():
     #new_parser
      new_parser.add_argument("-o", "--outputfile",  dest = "output_file", required= True, metavar="filename", help="REQUIRED: file name, including PATH, of the newd ddbb")
      new_parser.add_argument("-v", "--vcf", required= False, action='store_true', help="Database will use vcf files instead of ")
+     new_parser.add_argument("-s", "--suffix", required= False, type=str, default=".snp.hf.pass.final.vcf", help="Suffix to filter within vcf with similar suffix")
+
 
      new_exclusive = new_parser.add_mutually_exclusive_group(required= True)
 
@@ -58,7 +60,7 @@ def get_arguments():
 
      #update_parser
      update_parser.add_argument("-o", "--outputfile",  dest = "output_file", required= True, metavar="filename", help="REQUIRED: file name, including PATH, of the updated ddbb")
-     update_parser.add_argument("-vs", "--snp-final", required= False, action='store_true', help="Database will use snp.fila instead of gatk vcf ")
+     update_parser.add_argument("-s", "--snp-final", required= False, action='store_true', help="Database will use snp.fila instead of gatk vcf ")
      update_parser.add_argument("-d", "--database",  dest = "update_database", required= True, metavar="TB_database", help="REQUIRED: csv file with the database to be enriched/consulted")
 
      update_exclusive = update_parser.add_mutually_exclusive_group()
