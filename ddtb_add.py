@@ -6,7 +6,6 @@ import argparse
 import sys
 from misc import check_file_exists, import_to_pandas, extract_sample_snp_final, import_VCF4_to_pandas
 
-
 END_FORMATTING = '\033[0m'
 WHITE_BG = '\033[0;30;47m'
 BOLD = '\033[1m'
@@ -24,6 +23,57 @@ def blank_database():
     new_pandas_ddtb = pd.DataFrame(columns=['Position','N', 'Samples'])
     return new_pandas_ddtb
 
+
+def retrieve_tabs(sample_list, folder_tab):
+    dict_tab_files = {}
+    for sample in sample_list:
+        for root, _, files in os.walk(folder_tab):
+            for name in files:
+                filename = os.path.join(root, name)
+                if (sample in filename) and filename.endswith(".tab"):
+                    dict_tab_files[sample] = pd.read_csv(filename, sep="\t",header=0)
+    if len(sample_list) == len(dict_tab_files.keys()):
+        return dict_tab_files
+    else:
+        print('Some tab files are missing, please make sure all samples are represented')
+        sys.exit(1)
+
+def variant_is_present(vcf_df,position):
+    if position in vcf_df.POS.tolist():
+        index_position = vcf_df.index[vcf_df.POS == position][0]
+        if vcf_df.loc[index_position,'ALT_AD'] > vcf_df.loc[index_position,'REF_AD']:
+            return "1"
+        else:
+            return "0"
+    else:
+        return "0"
+
+def recallibrate_ddbb(snp_matrix_ddbb, folder_tab):
+    
+    folder_tab = os.path.abspath(folder_tab)
+    df = snp_matrix_ddbb
+    #df = pd.read_csv(snp_matrix_ddbb, sep="\t",header=0)
+    sample_list = df.columns[3:]
+    n_samples = len(sample_list)
+    
+    all_samples_tab = retrieve_tabs(sample_list,folder_tab)
+    
+    for sample in sample_list:
+        for index, _ in df[df.N < n_samples].iterrows():
+            previous_snp = df.loc[index,sample]
+            #df.loc[index,sample] coordinates to replace
+            #all_samples_tab[sample] Dictionary with tab dataframes with all samples and variants
+            #df.iloc[index,0] First columnn = POSITION to check with function and return new 0 or 1
+            post_snp = int(variant_is_present(all_samples_tab[sample], df.iloc[index,0]))
+            df.loc[index,sample] = post_snp
+            #df.loc[index,sample] = variant_is_present(all_samples_tab[sample], df.iloc[index,0])
+            #Substitute previous count (N) and list of samples
+            if previous_snp == 0 and post_snp == 1:
+                #Reassign number of samples (colimn with index 1)
+                df.iloc[index,1] = df.iloc[index,1] + 1
+                #Reassign list of samples (colimn with index 2)
+                df.iloc[index,2] = df.iloc[index,2] + "," + sample
+    return df
 
 def ddtb_add(args):
     directory = os.path.abspath(args.folder)
@@ -110,18 +160,29 @@ def ddtb_add(args):
                 % (sample, len(new_sample.index), len(positions_shared), len(positions_added)))
             else:
                 print(YELLOW + "The sample " + sample + " ALREADY exist" + END_FORMATTING)
-                
-            #Create small report with basic count
-            #####################################
+
+    final_ddbb = final_ddbb.fillna(0).sort_values("Position") #final_ddbb = final_ddbb["Position"].astype(int)
+    final_ddbb['N'] = final_ddbb['N'].astype(int)
+    final_ddbb = final_ddbb.reset_index(drop=True)
+
+    print("Final database now contains %s rows and %s columns" % final_ddbb.shape)
+    if args.recalibrate == False:
+        final_ddbb.to_csv(output_file, sep='\t', index=False)
+    else:
+        if os.path.exists(args.recalibrate):
+            print("\n" + MAGENTA + "Recalibration selected" + END_FORMATTING)
+            output_file = (".").join(output_file.split(".")[:-1]) + ".revised.tsv"
+            final_ddbb_revised = recallibrate_ddbb(final_ddbb, args.recalibrate)
+            final_ddbb_revised.to_csv(output_file, sep='\t', index=False)
+        else:
+            print("The directory supplied for recalculation does not exixt")
+            sys.exit(1)
+
+    #Create small report with basic count
+    #####################################
             
     print("\n" + GREEN + "Position check Finished" + END_FORMATTING)
     print(GREEN + "Added " + str(new_samples) + " samples out of " + str(all_samples) + END_FORMATTING + "\n")
-    #Sort positions and save new DDBB to TSV
-    final_ddbb['N'] = final_ddbb['N'].astype(int)
+    
     #pd.set_option('display.precision', 0)
     #pd.reset_option('^display.', silent=True) #Reset options in case I mess up
-
-    final_ddbb = final_ddbb.fillna(0).sort_values("Position") #final_ddbb = final_ddbb["Position"].astype(int)
-    print("Final database now contains %s rows and %s columns" % final_ddbb.shape)
-
-    final_ddbb.to_csv(output_file, sep='\t', index=False)
