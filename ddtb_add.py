@@ -4,6 +4,7 @@ import os
 import pandas as pd
 import argparse
 import sys
+import subprocess
 from misc import check_file_exists, import_to_pandas, extract_sample_snp_final, import_VCF4_to_pandas
 
 END_FORMATTING = '\033[0m'
@@ -24,6 +25,8 @@ def blank_database():
     return new_pandas_ddtb
 
 
+#### OLD RECALIBRATING FUNCTIONS
+########################################################################################################################################
 def retrieve_tabs(sample_list, folder_tab):
     dict_tab_files = {}
     for sample in sample_list:
@@ -74,6 +77,169 @@ def recallibrate_ddbb(snp_matrix_ddbb, folder_tab):
                 #Reassign list of samples (colimn with index 2)
                 df.iloc[index,2] = df.iloc[index,2] + "," + sample
     return df
+##########################################################################################################################
+#CREATED IN vcf_process.py
+
+def import_VCF42_cohort_pandas(vcf_file, sep='\t'):
+    """
+    Script to read vcf 4.2 cohort/join called vcf handling header lines
+    """
+    header_lines = 0
+    with open(vcf_file) as f:
+        first_line = f.readline().strip()
+        next_line = f.readline().strip()
+        while next_line.startswith("##"):
+            header_lines = header_lines + 1
+            #print(next_line)
+            next_line = f.readline()
+    
+    if first_line.endswith('VCFv4.2'):
+        dataframe = pd.read_csv(vcf_file, sep=sep, skiprows=[header_lines], header=header_lines)
+    else:
+        print("This vcf file is not v4.2")
+        sys.exit(1)
+
+    return dataframe
+
+def recheck_variant(format_sample):
+    #GT:AD:DP:GQ:PGT:PID:PL:PS
+    list_format = format_sample.split(":")
+    gt = list_format[0]
+    #gt0 = gt[0]
+    #gt1 = gt[1]
+    ad = list_format[1]
+    ref = int(ad.split(',')[0])
+    alt = max(int(x) for x in ad.split(',')[0:])
+    
+    if gt == "0/0":
+        value = 0
+    elif gt == "1/1":
+        value = 1
+    else:
+        if gt == "./.":
+            value = "!"
+        elif "2" in gt:
+            value = "!"
+        elif (ref > alt):
+            value = 0
+        elif (alt > ref):
+            value = 1
+        else:
+            value = "!"
+            
+    return value
+
+def recheck_variant_mpileup(reference_file, position, sample, bam_folder):
+    #Find reference name
+    with open(reference_file) as f:
+        reference = f.readline().split(" ")[0].strip(">").strip()
+    #Identify correct bam
+    for root, _, files in os.walk(bam_folder):
+        for name in files:
+            filename = os.path.join(root, name)
+            if name.startswith(sample) and name.endswith(".bqsr.bam"):
+                bam_file = filename
+    #format position for mpileuo execution (NC_000962.3:632455-632455)
+    position = reference + ":" + str(position) + "-" + str(position)
+    
+    #Execute command and retrieve output
+    cmd = ["samtools", "mpileup", "-f", reference_file, "-aa", "-r", position, bam_file]
+    text_mpileup = subprocess.run(cmd,stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True, universal_newlines=True) 
+    
+    #Extract 5th column to find variants
+    variant = text_mpileup.stdout.split()[4]
+    var_list = list(variant)
+    
+    most_freq_var = max(set(var_list), key = var_list.count).upper()
+        
+    if most_freq_var == "." or most_freq_var == "," or most_freq_var == "*":
+        return 0
+    else:
+        return 1
+
+def identify_nongenotyped_mpileup(reference_file, row_position, sample_list_matrix, list_presence, bam_folder):
+    """
+    Replace nongenotyped ("!") with the most abundant genotype
+    """
+    #mode = max(set(list_presence), key = list_presence.count)
+    
+    count_ng = list_presence.count("!")
+    sample_number = len(list_presence)
+    
+    if "!" not in list_presence:
+        return list_presence
+    elif count_ng/sample_number > 0.2:
+        return 'delete'
+    else:
+        indices_ng = [i for i, x in enumerate(list_presence) if x == "!"]
+        for index in indices_ng:
+            #print(reference_file, row_position, sample_list_matrix[index], bam_folder)
+            list_presence[index] = recheck_variant_mpileup(reference_file, row_position, sample_list_matrix[index], bam_folder)
+        #new_list_presence = [mode if x == "!" else x for x in list_presence]
+        return list_presence
+
+def extract_recalibrate_params(pipeline_folder):
+    for root, dirs, _ in os.walk(pipeline_folder):
+        if root == pipeline_folder:
+            for directory in dirs:
+                subfolder = os.path.join(root, directory)
+                if subfolder.endswith("/VCF"):
+                    for file in os.listdir(subfolder):
+                        if file.endswith("cohort.combined.hf.vcf"):
+                            cohort_file = os.path.join(subfolder, file)
+                            
+                            with open(cohort_file, 'r') as f:
+                                for line in f:
+                                    if line.startswith("#"):
+                                        if "--reference " in line:
+                                            reference_file = line.split("--reference ")[1].strip().split(" ")[0].strip()
+                                        
+                            
+                elif subfolder.endswith("/Bam"):
+                    bam_folder = subfolder
+                    
+    return (cohort_file, bam_folder, reference_file)
+
+def recalibrate_ddbb_vcf(snp_matrix_ddbb, vcf_cohort, bam_folder, reference_file):
+    
+    vcf_cohort = os.path.abspath(vcf_cohort)
+    #snp_matrix_ddbb = os.path.abspath(snp_matrix_ddbb)
+    
+    df_matrix = snp_matrix_ddbb
+    df_cohort = import_VCF42_cohort_pandas(vcf_cohort)
+    
+    sample_list_matrix = df_matrix.columns[3:]
+    n_samples = len(sample_list_matrix)
+    #sample_list_cohort = df_cohort.columns.tolist()[9:]
+    
+    
+    list_index_dropped = []
+    #Iterate over non unanimous positions 
+    for index, data_row in df_matrix[df_matrix.N < n_samples].iloc[:,3:].iterrows():
+        #Extract its position
+        row_position = int(df_matrix.loc[index,"Position"])
+        #print(data_row.values)
+        #Use enumerate to retrieve column index (column ondex + 3)
+        presence_row = [recheck_variant(df_cohort.loc[df_cohort.POS == row_position, df_matrix.columns[n + 3]].item()) \
+                           for n,x in enumerate(data_row)]
+        #print(presence_row, row_position)
+        #Resolve non genotyped using gvcf files
+        new_presence_row = identify_nongenotyped_mpileup(reference_file, row_position, sample_list_matrix, presence_row, bam_folder)
+        
+        #find positions with 20% of nongenotyped and delete them OR
+        #reasign positions without nongenotyped positions 
+        if new_presence_row == 'delete':
+            list_index_dropped.append(index)
+        else:
+            df_matrix.iloc[index, 3:] = new_presence_row
+            df_matrix.loc[index, 'N'] = sum(new_presence_row)
+        #print(new_presence_row)
+        #print("\n")
+    #Remove all rows at once to avoid interfering with index during for loop
+    df_matrix.drop(index=list_index_dropped, axis=0, inplace=True)
+    
+    return df_matrix
+
 
 def ddtb_add(args):
     directory = os.path.abspath(args.folder)
@@ -169,10 +335,12 @@ def ddtb_add(args):
     if args.recalibrate == False:
         final_ddbb.to_csv(output_file, sep='\t', index=False)
     else:
+        args.recalibrate = os.path.abspath(args.recalibrate)
         if os.path.exists(args.recalibrate):
+            recalibrate_params = extract_recalibrate_params(args.recalibrate)
             print("\n" + MAGENTA + "Recalibration selected" + END_FORMATTING)
             output_file = (".").join(output_file.split(".")[:-1]) + ".revised.tsv"
-            final_ddbb_revised = recallibrate_ddbb(final_ddbb, args.recalibrate)
+            final_ddbb_revised = recalibrate_ddbb_vcf(final_ddbb, recalibrate_params[0], recalibrate_params[1], recalibrate_params[2])
             final_ddbb_revised.to_csv(output_file, sep='\t', index=False)
         else:
             print("The directory supplied for recalculation does not exixt")
