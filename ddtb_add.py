@@ -327,6 +327,7 @@ def ddtb_add(args):
             else:
                 print(YELLOW + "The sample " + sample + " ALREADY exist" + END_FORMATTING)
 
+
     final_ddbb = final_ddbb.fillna(0).sort_values("Position") #final_ddbb = final_ddbb["Position"].astype(int)
     final_ddbb['N'] = final_ddbb['N'].astype(int)
     final_ddbb = final_ddbb.reset_index(drop=True)

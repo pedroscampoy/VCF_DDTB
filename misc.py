@@ -1,4 +1,5 @@
 import pandas as pd
+import gzip
 import os
 import sys
 import re
@@ -69,18 +70,30 @@ def extract_sample_snp_final(snp_final):
 
 def import_VCF4_to_pandas(vcf_file, sep='\t'):
     header_lines = 0
-    with open(vcf_file) as f:
-        first_line = f.readline().strip()
-        next_line = f.readline().strip()
-        while next_line.startswith("##"):
-            header_lines = header_lines + 1
-            #print(next_line)
-            next_line = f.readline()
+    if vcf_file.endswith(".gz"):
+        with gzip.open(vcf_file, 'rb') as f:
+            first_line = f.readline().decode().strip()
+            next_line = f.readline().decode().strip()
+            while next_line.startswith("##"):
+                header_lines = header_lines + 1
+                #print(next_line)
+                next_line = f.readline().decode().strip()
+    else:
+        with open(vcf_file, 'r') as f:
+            first_line = f.readline().strip()
+            next_line = f.readline().strip()
+            while next_line.startswith("##"):
+                header_lines = header_lines + 1
+                #print(next_line)
+                next_line = f.readline().strip()
     
     if first_line.endswith('VCFv4.2'):
         
         #Use first line as header
-        dataframe = pd.read_csv(vcf_file, sep=sep, skiprows=[header_lines], header=header_lines)
+        if vcf_file.endswith(".gz"):
+            dataframe = pd.read_csv(vcf_file, compression='gzip', sep=sep, skiprows=[header_lines], header=header_lines)
+        else:
+            dataframe = pd.read_csv(vcf_file, sep=sep, skiprows=[header_lines], header=header_lines)
         sample = dataframe.columns[-1]
         dataframe.rename(columns={sample:'sample'}, inplace=True)
         dataframe['POS'] = dataframe['POS'].astype(int)
